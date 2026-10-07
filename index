@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 NGÔI NHÀ HẠNH PHÚC</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+:root{
+ --pink:#f7b8d2;--pink2:#ffe6f0;--lav:#d9ccff;--mint:#c9f3e7;--blue:#cdeaff;
+ --cream:#fff8ef;--text:#59445a;--muted:#8d778d;--white:#fff;--danger:#ed7c91;
+ --shadow:0 10px 28px rgba(126,80,110,.12);--radius:22px;
+}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#fff7fb,#fffdf8);color:var(--text);font-family:Nunito,Arial,sans-serif}
+button,input,select,textarea{font:inherit} button{cursor:pointer;border:0}
+.app{display:flex;min-height:100vh}.sidebar{width:270px;background:rgba(255,255,255,.94);border-right:1px solid #f2dce7;padding:18px 14px;position:sticky;top:0;height:100vh;overflow:auto;z-index:10}
+.brand{display:flex;gap:10px;align-items:center;padding:8px 10px 18px}.brand .flower{font-size:35px}.brand h1{font:800 23px "Baloo 2";margin:0;line-height:1.05}.brand small{color:var(--muted)}
+.teacher-mini{background:linear-gradient(135deg,var(--pink2),#fff);padding:12px;border-radius:18px;display:flex;align-items:center;gap:10px;margin-bottom:12px}.avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;border:3px solid #fff;box-shadow:var(--shadow)}
+.nav{display:grid;gap:6px}.nav button{background:transparent;text-align:left;padding:11px 13px;border-radius:14px;color:var(--text);font-weight:700}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#ffe1ec,#f0eaff);transform:translateX(2px)}
+.side-bottom{margin-top:15px;display:grid;gap:8px}.sound{display:flex;align-items:center;justify-content:space-between;background:#f7f2ff;padding:10px 12px;border-radius:14px}
+.main{flex:1;min-width:0;padding:22px;max-width:1600px;margin:auto;width:100%}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.page-title{font:800 30px "Baloo 2";margin:0}.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:10px 15px;border-radius:14px;font-weight:800;background:#fff;box-shadow:var(--shadow);color:var(--text)}.btn.primary{background:linear-gradient(135deg,#f7a9ca,#d8c7ff);color:#fff}.btn.mint{background:var(--mint)}.btn.danger{background:#ffe1e5;color:#a94458}.btn:active{transform:scale(.97)}
+.hero{min-height:230px;border-radius:28px;background:linear-gradient(120deg,#ffdce9,#e9ddff 55%,#d9f7ef);background-size:cover;background-position:center;position:relative;overflow:hidden;padding:32px;display:flex;align-items:flex-end;box-shadow:var(--shadow);margin-bottom:18px}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(70,40,70,.48),transparent 65%)}.hero-content{position:relative;z-index:1;color:#fff;text-shadow:0 2px 8px #654f65}.hero h2{font:800 38px "Baloo 2";margin:0}.hero p{margin:4px 0;font-size:17px}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.stat,.card{background:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid #f7e8ef}.stat b{display:block;font:800 29px "Baloo 2";margin-top:4px}.stat span{color:var(--muted);font-weight:700}
+.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:16px}.card h3{font:800 22px "Baloo 2";margin:0 0 12px}.student-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.student{position:relative;background:linear-gradient(160deg,#fff,#fff6fa);border:1px solid #f3e1eb;border-radius:20px;padding:16px;text-align:center}.student .avatar{width:72px;height:72px}.student h4{margin:7px 0 2px;font-size:17px}.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#f0eaff;font-size:12px;font-weight:800}.points{font:800 24px "Baloo 2";margin:7px}.actions{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}.mini{padding:7px 10px;border-radius:10px;background:#f7eef8;font-weight:800;font-size:13px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.field{padding:11px 13px;border:1px solid #ecdbe7;border-radius:13px;background:#fff;outline:none;min-width:180px}.field:focus{border-color:#d5b7ee;box-shadow:0 0 0 3px #f3eaff}
+.table-wrap{overflow:auto}.table{width:100%;border-collapse:separate;border-spacing:0 7px}.table th{font-size:13px;color:var(--muted);text-align:left;padding:7px 10px}.table td{background:#fff;padding:11px 10px;border-top:1px solid #f2e4eb;border-bottom:1px solid #f2e4eb}.table td:first-child{border-left:1px solid #f2e4eb;border-radius:12px 0 0 12px}.table td:last-child{border-right:1px solid #f2e4eb;border-radius:0 12px 12px 0}
+.pill{padding:8px 12px;border-radius:12px;font-weight:800;background:#f5efff}.status-present{background:#dff8ed}.status-permit{background:#fff1bd}.status-absent{background:#ffe1e5}.status-late{background:#dff0ff}
+.modal{position:fixed;inset:0;background:rgba(73,48,70,.4);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal.show{display:flex}.modal-box{background:#fff;border-radius:25px;width:min(720px,100%);max-height:90vh;overflow:auto;padding:22px;box-shadow:0 30px 80px rgba(70,40,70,.3)}.modal-box h2{font:800 27px "Baloo 2";margin-top:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.avatar-picker{display:flex;gap:8px;flex-wrap:wrap}.avatar-option{width:48px;height:48px;border-radius:50%;border:3px solid transparent;background:#fff;font-size:25px}.avatar-option.selected{border-color:#f19ac0}
+.wheel-wrap{text-align:center}.wheel{width:min(430px,80vw);aspect-ratio:1;border-radius:50%;margin:10px auto;position:relative;border:12px solid #fff;box-shadow:var(--shadow);background:conic-gradient(#ffd3e4 0 25%,#d8f5ed 25% 50%,#d9d0ff 50% 75%,#ffe8b9 75% 100%);display:grid;place-items:center;transition:transform 4s cubic-bezier(.12,.72,.18,1)}.wheel:after{content:"🌸";background:#fff;border-radius:50%;padding:12px;font-size:24px}.pointer{font-size:35px;position:absolute;top:0;left:50%;transform:translate(-50%,-55%);z-index:2}.draw-card{min-height:230px;display:grid;place-items:center;background:linear-gradient(135deg,#fff1f7,#f1edff);border-radius:25px;font-size:26px;font-weight:800}.draw-card img{width:100px;height:100px;border-radius:50%;object-fit:cover}
+.rewards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}.reward{padding:16px;background:#fffaf0;border-radius:20px;border:1px solid #f1e3c9;text-align:center}.reward .emoji{font-size:45px}.leader-top{display:flex;justify-content:center;align-items:end;gap:15px;margin:15px 0}.podium{padding:18px;border-radius:22px;background:#fff5f9;text-align:center;min-width:150px}.podium.first{transform:translateY(-18px);background:#fff3c8}.podium .rank{font-size:35px}.noise{text-align:center}.meter{height:30px;background:#eee;border-radius:999px;overflow:hidden;margin:20px 0}.meter-fill{height:100%;width:0;transition:.15s;background:#78cfae}.noise-level{font:800 60px "Baloo 2"}.timer{text-align:center}.timer-display{font:800 clamp(65px,13vw,150px) "Baloo 2";line-height:1;margin:25px 0}.progress{height:18px;background:#eee;border-radius:99px;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#f6aacb,#c8b9ff);transition:.2s}.timer .bird{font-size:38px;transform:translateX(0);transition:.2s}
+.activity{display:grid;gap:9px}.activity-item{padding:10px 12px;background:#fff7fb;border-radius:13px}.muted{color:var(--muted)}.empty{padding:30px;text-align:center;color:var(--muted)}
+.toast{position:fixed;right:20px;bottom:20px;background:#fff;border-radius:15px;padding:13px 17px;box-shadow:0 15px 40px rgba(70,40,70,.2);z-index:100;display:none;font-weight:800}.toast.show{display:block;animation:pop .2s ease}.save-state{font-size:12px;color:#6c927e;font-weight:800}
+@keyframes pop{from{transform:translateY(15px);opacity:0}to{transform:none;opacity:1}}
+.fullscreen{position:fixed!important;inset:0!important;z-index:200!important;background:#fff;padding:30px!important;width:100%!important;height:100%!important;overflow:auto}
+@media(max-width:1100px){.stats{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr}.sidebar{width:230px}}
+@media(max-width:760px){.app{display:block}.sidebar{width:100%;height:auto;position:relative;border-right:0;border-bottom:1px solid #f2dce7}.nav{grid-template-columns:repeat(2,1fr)}.main{padding:12px}.stats{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.hero{min-height:220px;padding:20px}.hero h2{font-size:29px}.page-title{font-size:25px}.topbar{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="flower">🌸</div><div><h1 id="brandTitle">NGÔI NHÀ<br>HẠNH PHÚC</h1><small>Quản lý lớp học</small></div></div>
+  <div class="teacher-mini"><img id="teacherAvatarMini" class="avatar" alt=""><div><b id="teacherNameMini">Phạm Thị Hoa</b><div class="muted" id="classMini">Lớp của tôi</div></div></div>
+  <nav class="nav" id="nav">
+    <button data-page="dashboard">🏠 Tổng quan</button><button data-page="students">👩‍🎓 Học sinh</button>
+    <button data-page="attendance">✅ Điểm danh</button><button data-page="criteria">⭐ Tiêu chí thi đua</button>
+    <button data-page="lucky">🎯 Gọi tên may mắn</button><button data-page="groups">🏆 Thi đua các tổ</button>
+    <button data-page="rewards">🎁 Đổi quà</button><button data-page="ranking">🥇 Bảng xếp hạng</button>
+    <button data-page="noise">🔊 Đo tiếng ồn</button><button data-page="timer">⏱️ Đồng hồ đếm ngược</button>
+    <button data-page="settings">⚙️ Cài đặt & Sao lưu</button>
+  </nav>
+  <div class="side-bottom">
+    <div class="sound"><span id="soundLabel">🔊 Âm thanh: BẬT</span><button class="mini" id="soundBtn">Bật/Tắt</button></div>
+    <button class="btn primary" id="saveBtn">💾 LƯU DỮ LIỆU</button>
+    <div class="save-state" id="saveState">⏳ Đang tải dữ liệu</div>
+    <button class="btn" id="fullscreenBtn">⛶ Toàn màn hình</button>
+  </div>
+</aside>
+<main class="main">
+  <div class="topbar"><h2 class="page-title" id="pageTitle">🏠 Tổng quan</h2><div class="top-actions" id="topActions"></div></div>
+  <section id="content"></section>
+</main>
+</div>
+
+<div class="modal" id="modal"><div class="modal-box" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY='ngoiNhaHanhPhucState_v1';
+const DB='Ngôi Nhà Hạnh Phúc DB', STORE='state';
+let appState=null, currentPage='dashboard', db=null, saveTimer=null, wheelRotation=0, timer=null, audioCtx=null, micStream=null, analyser=null, micRAF=null;
+
+const avatars=['🐰','🐼','🐻','🦊','🐱','🐶','🐯','🦄','🐸','🐨','🐵','🐙','🦋','🐝','🐳','🐧','🦁','🐹','🐣','🐥'];
+const defaultState={
+ students:[],attendance:{},positiveCriteria:[
+  {id:'p1',emoji:'🌟',name:'Học tập tốt',points:1},{id:'p2',emoji:'🙋',name:'Phát biểu hăng hái',points:1},
+  {id:'p3',emoji:'📚',name:'Chuẩn bị bài tốt',points:2},{id:'p4',emoji:'🧹',name:'Trực nhật tốt',points:2},
+  {id:'p5',emoji:'🤝',name:'Giúp đỡ bạn bè',points:1},{id:'p6',emoji:'🏆',name:'Hoàn thành xuất sắc',points:3}],
+ reminderCriteria:[
+  {id:'n1',emoji:'💬',name:'Nói chuyện riêng',points:-1},{id:'n2',emoji:'✏️',name:'Quên đồ dùng',points:-1},{id:'n3',emoji:'⏰',name:'Đi muộn',points:-1}],
+ rewards:[
+  {id:'r1',emoji:'🏷️',name:'Sticker bé ngoan',cost:10,image:''},{id:'r2',emoji:'✏️',name:'Bút chì nhiều màu',cost:20,image:''},{id:'r3',emoji:'🏅',name:'Huy hiệu ngôi sao',cost:30,image:''}],
+ recentActivities:[],pickedStudentsHistory:[],
+ settings:{appTitle:'🌸 NGÔI NHÀ HẠNH PHÚC',teacherName:'Phạm Thị Hoa',className:'Lớp của tôi',schoolYear:'2026-2027',teacherAvatar:'',coverPhoto:'',audioEnabled:true},
+ groupScores:{'Tổ 1':0,'Tổ 2':0,'Tổ 3':0,'Tổ 4':0},updatedAt:''
+};
+
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function uid(p='id'){return p+'_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8)}
+function today(){return new Date().toISOString().slice(0,10)}
+function fmtDate(d){return new Date(d+'T00:00:00').toLocaleDateString('vi-VN')}
+function avatarHTML(s,cls='avatar'){return s?.avatar?.startsWith('data:')?`<img class="${cls}" src="${s.avatar}">`:`<div class="${cls}" style="display:grid;place-items:center;font-size:${cls==='avatar'?'32px':'25px'}">${s?.avatar||'👧'}</div>`}
+
+async function initDB(){
+ try{db=await new Promise((res,rej)=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(STORE))r.result.createObjectStore(STORE)};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});return true}catch(e){return false}
+}
+async function idbGet(){if(!db)return null;return new Promise(res=>{const r=db.transaction(STORE).objectStore(STORE).get('app');r.onsuccess=()=>res(r.result||null);r.onerror=()=>res(null)})}
+async function idbSet(v){if(!db)throw Error('IndexedDB unavailable');return new Promise((res,rej)=>{const r=db.transaction(STORE,'readwrite').objectStore(STORE).put(v,'app');r.onsuccess=()=>res();r.onerror=()=>rej(r.error)})}
+function normalize(s){let x=Object.assign(clone(defaultState),s||{});x.settings=Object.assign(clone(defaultState.settings),s?.settings||{});x.groupScores=Object.assign(clone(defaultState.groupScores),s?.groupScores||{});return x}
+async function loadData(){
+ document.getElementById('saveState').textContent='⏳ Đang tải dữ liệu';
+ let data=await idbGet();
+ if(!data){try{data=JSON.parse(localStorage.getItem(KEY)||'null')}catch{}}
+ appState=normalize(data);
+ if(!data){appState.updatedAt=new Date().toISOString();await persist(false)}
+ else document.getElementById('saveState').textContent='📱 Đã lưu trên thiết bị';
+ renderShell();render();
+}
+async function persist(notify=true){
+ if(!appState)return; appState.updatedAt=new Date().toISOString();
+ document.getElementById('saveState').textContent='🟡 Đang lưu';
+ let ok=false;
+ try{await idbSet(appState);ok=true}catch(e){}
+ try{localStorage.setItem(KEY,JSON.stringify(appState));ok=true}catch(e){}
+ document.getElementById('saveState').textContent=ok?'🟢 Đã lưu':'🔴 Lưu thất bại';
+ if(notify)toast(ok?'💾 Đã lưu dữ liệu trên thiết bị':'🔴 Lưu dữ liệu thất bại');
+}
+function saveSoon(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>persist(false),180)}
+function addActivity(text,icon='✨'){appState.recentActivities.unshift({id:uid('a'),text,icon,at:new Date().toLocaleString('vi-VN')});appState.recentActivities=appState.recentActivities.slice(0,40)}
+function toast(t){const x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),2200)}
+function beep(type='click'){
+ if(!appState?.settings.audioEnabled)return;
+ try{audioCtx ||= new (window.AudioContext||window.webkitAudioContext)();let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=type==='win'?720:type==='bad'?220:480;g.gain.value=.045;o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+(type==='win'?.25:.09))}catch{}
+}
+function readFile(file,max=900,quality=.78){return new Promise((res,rej)=>{if(!file)return res('');let r=new FileReader();r.onload=()=>{let img=new Image();img.onload=()=>{let c=document.createElement('canvas'),scale=Math.min(1,max/Math.max(img.width,img.height));c.width=Math.max(1,img.width*scale);c.height=Math.max(1,img.height*scale);let q=c.getContext('2d');q.drawImage(img,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',quality))};img.onerror=rej;img.src=r.result};r.onerror=rej;r.readAsDataURL(file)})}
+function studentCount(){return appState.students.length}
+function groupTotal(g){return appState.students.filter(s=>s.group===g).reduce((a,s)=>a+s.points,0)}
+function renderShell(){
+ document.getElementById('brandTitle').innerHTML=esc(appState.settings.appTitle.replace(/^🌸\s*/, '🌸 ')).replace(' ','<br> ');
+ document.getElementById('teacherNameMini').textContent=appState.settings.teacherName;
+ document.getElementById('classMini').textContent=appState.settings.className;
+ document.getElementById('soundLabel').textContent=appState.settings.audioEnabled?'🔊 Âm thanh: BẬT':'🔇 Âm thanh: TẮT';
+ const a=appState.settings.teacherAvatar;document.getElementById('teacherAvatarMini').src=a||'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><rect width="100%" height="100%" rx="40" fill="#ffe1ed"/><text x="50%" y="58%" text-anchor="middle" font-size="40">👩‍🏫</text></svg>`);
+}
+document.getElementById('nav').addEventListener('click',e=>{let b=e.target.closest('button[data-page]');if(!b)return;currentPage=b.dataset.page;render()});
+document.getElementById('saveBtn').onclick=()=>persist(true);
+document.getElementById('soundBtn').onclick=()=>{appState.settings.audioEnabled=!appState.settings.audioEnabled;renderShell();saveSoon();beep();};
+document.getElementById('fullscreenBtn').onclick=()=>document.documentElement.requestFullscreen?.();
+
+function render(){
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===currentPage));
+ const titles={dashboard:'🏠 Tổng quan',students:'👩‍🎓 Danh sách học sinh',attendance:'✅ Điểm danh hằng ngày',criteria:'⭐ Tiêu chí thưởng & nhắc nhở',lucky:'🎯 Gọi tên học sinh may mắn',groups:'🏆 Thi đua các tổ',rewards:'🎁 Cửa hàng đổi quà',ranking:'🥇 Bảng xếp hạng khen thưởng',noise:'🔊 Đo tiếng ồn lớp học',timer:'⏱️ Đồng hồ đếm ngược',settings:'⚙️ Cài đặt & Sao lưu dữ liệu'};
+ document.getElementById('pageTitle').textContent=titles[currentPage];
+ const fn={dashboard:renderDashboard,students:renderStudents,attendance:renderAttendance,criteria:renderCriteria,lucky:renderLucky,groups:renderGroups,rewards:renderRewards,ranking:renderRanking,noise:renderNoise,timer:renderTimer,settings:renderSettings};
+ fn[currentPage]();renderShell();
+}
+function renderDashboard(){
+ const d=appState.attendance[today()]||{};let present=0,permit=0,absent=0,late=0;appState.students.forEach(s=>{let v=d[s.id]||'present';if(v==='present')present++;if(v==='permit')permit++;if(v==='absent')absent++;if(v==='late')late++});
+ let top=[...appState.students].sort((a,b)=>b.totalAccumulatedPoints-a.totalAccumulatedPoints).slice(0,3);
+ document.getElementById('content').innerHTML=`
+ <div class="hero" id="hero"><div class="hero-content"><h2>Xin chào ${esc(appState.settings.teacherName)}! ✨</h2><p>Chúc cô và lớp học có một ngày thật vui vẻ và tràn đầy năng lượng! 🎈</p><p><b>${esc(appState.settings.className)}</b> · ${esc(appState.settings.schoolYear)}</p></div></div>
+ <div class="stats">
+ ${[['🎓','Tổng học sinh',studentCount()],['✅','Có mặt',present],['🟡','Nghỉ có phép',permit],['🔴','Nghỉ không phép',absent],['🕒','Đi muộn',late],['⭐','Điểm thưởng hôm nay',appState.students.reduce((a,s)=>a+s.points,0)]].map(x=>`<div class="stat"><span>${x[0]} ${x[1]}</span><b>${x[2]}</b></div>`).join('')}
+ </div>
+ <div class="grid2"><div class="card"><h3>🏆 TOP HỌC SINH NỔI BẬT</h3>${top.length?`<div class="student-grid">${top.map(s=>`<div class="student">${avatarHTML(s)}<h4>${esc(s.name)}</h4><span class="tag">${esc(s.group)}</span><div class="points">${s.totalAccumulatedPoints} ⭐</div></div>`).join('')}</div>`:'<div class="empty">Chưa có học sinh.</div>'}</div>
+ <div class="card"><h3>⚡ HOẠT ĐỘNG GẦN ĐÂY</h3><div class="activity">${appState.recentActivities.length?appState.recentActivities.slice(0,9).map(a=>`<div class="activity-item">${a.icon} ${esc(a.text)}<br><small class="muted">${esc(a.at)}</small></div>`).join(''):'<div class="empty">Chưa có hoạt động.</div>'}</div></div></div>`;
+ if(appState.settings.coverPhoto)document.getElementById('hero').style.backgroundImage=`url(${appState.settings.coverPhoto})`;
+}
+function renderStudents(){
+ let list=[...appState.students], q='',g='all',sex='all';
+ document.getElementById('content').innerHTML=`<div class="toolbar"><input class="field" id="searchStu" placeholder="🔎 Tìm học sinh theo tên"><select class="field" id="groupFilter"><option value="all">Tất cả các tổ</option>${[1,2,3,4].map(i=>`<option>Tổ ${i}</option>`).join('')}</select><select class="field" id="sexFilter"><option value="all">Tất cả giới tính</option><option>Nam</option><option>Nữ</option></select><button class="btn primary" id="addStu">➕ Thêm học sinh</button><button class="btn mint" id="importStu">📥 Nhập DS học sinh</button><button class="btn danger" id="deleteAll">🗑️ XÓA TOÀN BỘ DS</button></div><div class="student-grid" id="studentGrid"></div>`;
+ const paint=()=>{q=document.getElementById('searchStu').value.toLowerCase();g=document.getElementById('groupFilter').value;sex=document.getElementById('sexFilter').value;let a=list.filter(s=>s.name.toLowerCase().includes(q)&&(g==='all'||s.group===g)&&(sex==='all'||s.gender===sex));document.getElementById('studentGrid').innerHTML=a.length?a.map(s=>`<div class="student">${avatarHTML(s)}<h4>${esc(s.name)}</h4><span class="tag">${esc(s.gender)} · ${esc(s.group)}</span><div class="points">${s.points} ⭐</div><div class="muted">Tích lũy: ${s.totalAccumulatedPoints}</div><div class="actions"><button class="mini" onclick="openReward('${s.id}')">+ Thưởng</button><button class="mini" onclick="editStudent('${s.id}')">✏️</button><button class="mini" onclick="deleteStudent('${s.id}')">🗑️</button></div></div>`).join(''):'<div class="empty">Chưa có học sinh phù hợp.</div>'};
+ document.getElementById('searchStu').oninput=paint;document.getElementById('groupFilter').onchange=paint;document.getElementById('sexFilter').onchange=paint;paint();
+ document.getElementById('addStu').onclick=()=>openStudentModal();
+ document.getElementById('importStu').onclick=()=>openImportModal();
+ document.getElementById('deleteAll').onclick=()=>{if(confirm('Bạn có chắc muốn xóa toàn bộ danh sách học sinh không?')){appState.students=[];addActivity('Đã xóa toàn bộ danh sách học sinh','🗑️');persist();render()}};
+}
+function openStudentModal(id){
+ let s=id?appState.students.find(x=>x.id===id):{name:'',gender:'Nữ',group:'Tổ 1',avatar:'🐰'};
+ document.getElementById('modalBox').innerHTML=`<h2>${id?'✏️ Sửa học sinh':'➕ Thêm học sinh'}</h2><div class="form-grid">
+ <label class="full">Họ và tên<input class="field" style="width:100%" id="sName" value="${esc(s.name)}" required></label>
+ <label>Giới tính<select class="field" style="width:100%" id="sGender"><option ${s.gender==='Nam'?'selected':''}>Nam</option><option ${s.gender==='Nữ'?'selected':''}>Nữ</option></select></label>
+ <label>Tổ<select class="field" style="width:100%" id="sGroup">${[1,2,3,4].map(i=>`<option ${s.group==='Tổ '+i?'selected':''}>Tổ ${i}</option>`).join('')}</select></label>
+ <div class="full"><b>Avatar</b><div class="avatar-picker" id="avatarPicker">${avatars.map(a=>`<button class="avatar-option ${s.avatar===a?'selected':''}" data-av="${a}">${a}</button>`).join('')}</div><input type="file" id="sPhoto" accept="image/*" style="margin-top:10px"></div>
+ </div><div class="modal-actions"><button class="btn" onclick="closeModal()">Hủy</button><button class="btn primary" id="saveStudent">💾 Lưu</button></div>`;
+ showModal();let selected=s.avatar;document.querySelectorAll('.avatar-option').forEach(b=>b.onclick=()=>{selected=b.dataset.av;document.querySelectorAll('.avatar-option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')});
+ document.getElementById('saveStudent').onclick=async()=>{let name=document.getElementById('sName').value.trim();if(!name)return alert('Vui lòng nhập họ tên.');let f=document.getElementById('sPhoto').files[0];if(f)selected=await readFile(f,500,.75);if(id){Object.assign(s,{name,gender:document.getElementById('sGender').value,group:document.getElementById('sGroup').value,avatar:selected});addActivity('Đã sửa thông tin '+name,'✏️')}else{appState.students.push({id:uid('st'),name,gender:document.getElementById('sGender').value,group:document.getElementById('sGroup').value,points:0,totalAccumulatedPoints:0,avatar:selected});addActivity('Đã thêm học sinh '+name,'👩‍🎓')}await persist(false);closeModal();render()};
+}
+function editStudent(id){openStudentModal(id)}
+function deleteStudent(id){let s=appState.students.find(x=>x.id===id);if(confirm('Xóa học sinh '+s.name+'?')){appState.students=appState.students.filter(x=>x.id!==id);addActivity('Đã xóa '+s.name,'🗑️');persist();render()}}
+function openImportModal(){
+ document.getElementById('modalBox').innerHTML=`<h2>📥 Nhập danh sách học sinh</h2><p class="muted">Cách 1: dán danh sách, mỗi dòng một học sinh. Có thể có STT. Cách 2: chọn Excel nếu trình duyệt hỗ trợ thư viện.</p><textarea class="field" id="importText" style="width:100%;height:220px" placeholder="Nguyễn Văn A&#10;Trần Thị B&#10;Phạm Văn C"></textarea><input type="file" id="excelFile" accept=".xlsx,.xls" style="margin-top:10px"><div id="previewImport" class="card" style="margin-top:12px;display:none"></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Hủy</button><button class="btn primary" id="previewBtn">👀 Xem trước danh sách</button></div>`;
+ showModal();document.getElementById('previewBtn').onclick=()=>{let raw=document.getElementById('importText').value.trim();let names=raw.split(/\n+/).map(x=>x.replace(/^\s*\d+[\.\)\-:]\s*/,'').trim()).filter(Boolean);let box=document.getElementById('previewImport');box.style.display='block';box.innerHTML=names.length?`<b>Danh sách xem trước (${names.length} học sinh):</b><ol>${names.slice(0,5).map(n=>`<li>${esc(n)}</li>`).join('')}</ol><button class="btn primary" onclick="confirmImport()">✅ Xác nhận thêm</button>`:'Không có dữ liệu.';window._importNames=names};
+}
+window.confirmImport=async()=>{let names=window._importNames||[];names.forEach((name,i)=>appState.students.push({id:uid('st'),name,gender:'Nữ',group:'Tổ '+((appState.students.length+i)%4+1),points:0,totalAccumulatedPoints:0,avatar:avatars[(appState.students.length+i)%avatars.length]}));addActivity('Đã nhập '+names.length+' học sinh','📥');await persist(false);closeModal();render()};
+function renderAttendance(){
+ let date=today();document.getElementById('content').innerHTML=`<div class="toolbar"><label>📅 Chọn ngày <input class="field" type="date" id="attDate" value="${date}"></label><button class="btn primary" id="saveAtt">💾 LƯU ĐIỂM DANH</button></div><div class="card"><div class="table-wrap"><table class="table"><thead><tr><th>STT</th><th>Họ và tên</th><th>Tổ</th><th>Trạng thái</th></tr></thead><tbody id="attBody"></tbody></table></div></div>`;
+ const paint=()=>{date=document.getElementById('attDate').value;let d=appState.attendance[date]||{};document.getElementById('attBody').innerHTML=appState.students.map((s,i)=>{let v=d[s.id]||'present';return `<tr><td>${i+1}</td><td>${avatarHTML(s,'avatar')} ${esc(s.name)}</td><td>${esc(s.group)}</td><td><select class="field attSel" data-id="${s.id}"><option value="present" ${v==='present'?'selected':''}>✅ Có mặt</option><option value="permit" ${v==='permit'?'selected':''}>🟡 Nghỉ có phép</option><option value="absent" ${v==='absent'?'selected':''}>🔴 Nghỉ không phép</option><option value="late" ${v==='late'?'selected':''}>🕒 Đi muộn</option></select></td></tr>`}).join('')};
+ document.getElementById('attDate').onchange=paint;document.getElementById('saveAtt').onclick=()=>{appState.attendance[date]={};document.querySelectorAll('.attSel').forEach(x=>appState.attendance[date][x.dataset.id]=x.value);addActivity('Đã lưu điểm danh ngày '+fmtDate(date),'✅');persist();render()};paint();
+}
+function renderCriteria(){
+ const col=(title,arr,type)=>`<div class="card"><h3>${title}</h3><div id="${type}List">${arr.map(c=>`<div class="activity-item" style="display:flex;align-items:center;gap:8px;margin-bottom:7px"><span style="font-size:24px">${c.emoji}</span><b style="flex:1">${esc(c.name)}</b><span class="pill">${c.points>0?'+':''}${c.points}</span><button class="mini" onclick="editCriterion('${type}','${c.id}')">✏️</button><button class="mini" onclick="removeCriterion('${type}','${c.id}')">🗑️</button></div>`).join('')}<button class="btn primary" onclick="addCriterion('${type}')">➕ Thêm tiêu chí</button></div></div>`;
+ document.getElementById('content').innerHTML=`<div class="grid2">${col('🌟 Tiêu chí thưởng',appState.positiveCriteria,'positiveCriteria')}${col('⚠️ Tiêu chí nhắc nhở',appState.reminderCriteria,'reminderCriteria')}</div>`;
+}
+function addCriterion(type){let emoji=prompt('Emoji:','⭐'),name=prompt('Tên tiêu chí:');if(!name)return;let p=Number(prompt('Số điểm:',type==='positiveCriteria'?'1':'-1'));if(!Number.isFinite(p))return;appState[type].push({id:uid('c'),emoji,name,points:type==='positiveCriteria'?Math.abs(p):-Math.abs(p)});addActivity('Đã thêm tiêu chí '+name,'⭐');persist();render()}
+function editCriterion(type,id){let c=appState[type].find(x=>x.id===id);let name=prompt('Tên tiêu chí:',c.name);if(name===null)return;let p=Number(prompt('Số điểm:',c.points));if(!Number.isFinite(p))return;c.name=name;c.points=type==='positiveCriteria'?Math.abs(p):-Math.abs(p);persist();render()}
+function removeCriterion(type,id){if(!confirm('Xóa tiêu chí này?'))return;appState[type]=appState[type].filter(x=>x.id!==id);persist();render()}
+function openReward(id){
+ let s=appState.students.find(x=>x.id===id);let all=[...appState.positiveCriteria,...appState.reminderCriteria];
+ document.getElementById('modalBox').innerHTML=`<h2>⭐ Thưởng & nhắc nhở</h2><div style="text-align:center">${avatarHTML(s)}<h3>${esc(s.name)}</h3><div class="points">${s.points} ⭐</div></div><div class="student-grid">${all.map(c=>`<button class="btn ${c.points>0?'mint':'danger'}" onclick="applyCriterion('${s.id}','${c.id}')">${c.emoji} ${esc(c.name)} ${c.points>0?'+':''}${c.points}</button>`).join('')}</div><div class="modal-actions"><button class="btn" onclick="closeModal()">Đóng</button></div>`;
+ showModal();
+}
+function applyCriterion(sid,cid){let s=appState.students.find(x=>x.id===sid),c=[...appState.positiveCriteria,...appState.reminderCriteria].find(x=>x.id===cid);if(c.points>0){s.points+=c.points;s.totalAccumulatedPoints+=c.points}else s.points=Math.max(0,s.points+c.points);addActivity(`${c.points>0?'Cộng':'Trừ'} ${Math.abs(c.points)} điểm cho ${s.name}: ${c.name}`,c.emoji);beep(c.points>0?'win':'bad');persist();closeModal();render()}
+function renderLucky(){
+ document.getElementById('content').innerHTML=`<div class="toolbar"><button class="btn primary" onclick="luckyMode('wheel')">🎡 Vòng quay may mắn</button><button class="btn" onclick="luckyMode('draw')">🎲 Rút thẻ ngẫu nhiên</button><button class="btn" onclick="luckyMode('cards')">🃏 Lật thẻ 3D</button><button class="btn danger" onclick="resetHistory()">🔄 Đặt lại lịch sử</button></div><div id="luckyArea"></div>`;
+ luckyMode('wheel');
+}
+function eligibleStudents(){let hist=appState.pickedStudentsHistory||[];let a=appState.students.filter(s=>!hist.includes(s.id));return a.length?a:appState.students}
+function pickStudent(){let a=eligibleStudents();if(!a.length)return null;let s=a[Math.floor(Math.random()*a.length)];appState.pickedStudentsHistory=[...(appState.pickedStudentsHistory||[]),s.id];if(appState.pickedStudentsHistory.length>=appState.students.length){}return s}
+function showWinner(s){if(!s)return;beep('win');addActivity('Gọi tên may mắn: '+s.name,'🎯');persist();document.getElementById('modalBox').innerHTML=`<div style="text-align:center"><div style="font-size:50px">🎉</div>${avatarHTML(s)}<h2>Chúc mừng!</h2><h2>${esc(s.name)}</h2><span class="tag">${esc(s.group)}</span><div class="points">${s.points} ⭐</div><div class="modal-actions"><button class="btn primary" onclick="closeModal()">Tuyệt vời! 🌸</button></div></div>`;showModal()}
+function luckyMode(mode){
+ let a=eligibleStudents();if(!a.length){document.getElementById('luckyArea').innerHTML='<div class="empty">Hãy thêm học sinh trước.</div>';return}
+ if(mode==='wheel'){document.getElementById('luckyArea').innerHTML=`<div class="card wheel-wrap"><div class="pointer">🔻</div><div class="wheel" id="wheel"></div><button class="btn primary" id="spin">🚀 QUAY VÒNG QUAY!</button><p class="muted">Học sinh đã được chọn sẽ được ưu tiên tránh gọi lại trong cùng một vòng.</p></div>`;document.getElementById('spin').onclick=()=>{let s=pickStudent(),idx=a.findIndex(x=>x.id===s.id);let turns=5+Math.random()*3;wheelRotation+=turns*360+(360-(idx/a.length)*360);document.getElementById('wheel').style.transform=`rotate(${wheelRotation}deg)`;setTimeout(()=>showWinner(s),4100)}}
+ if(mode==='draw'){document.getElementById('luckyArea').innerHTML=`<div class="card" style="text-align:center"><div class="draw-card" id="drawCard">🎲<br>Ai sẽ được chọn?</div><button class="btn primary" id="draw">🎲 RÚT THẺ NGẪU NHIÊN</button></div>`;document.getElementById('draw').onclick=()=>{let s=pickStudent(),card=document.getElementById('drawCard'),i=0;let iv=setInterval(()=>{let x=a[Math.floor(Math.random()*a.length)];card.innerHTML=avatarHTML(x)+`<br>${esc(x.name)}`;if(++i>16){clearInterval(iv);setTimeout(()=>showWinner(s),250)}},80)}}
+ if(mode==='cards'){let cards=a.slice(0,Math.min(12,a.length));document.getElementById('luckyArea').innerHTML=`<div class="card"><h3>🃏 Chọn một thẻ</h3><div class="student-grid">${cards.map((s,i)=>`<button class="student" onclick="flipPick('${s.id}',this)" style="min-height:150px"><div style="font-size:60px">❓</div><b>Thẻ ${i+1}</b></button>`).join('')}</div><p class="muted">Các thẻ chứa học sinh ngẫu nhiên.</p></div>`}
+}
+function flipPick(id,el){let s=appState.students.find(x=>x.id===id);if(!s)return;el.style.transform='rotateY(180deg)';el.innerHTML=`${avatarHTML(s)}<h4>${esc(s.name)}</h4><span class="tag">${esc(s.group)}</span>`;appState.pickedStudentsHistory=[...(appState.pickedStudentsHistory||[]),s.id];addActivity('Lật thẻ: '+s.name,'🃏');persist();beep('win');}
+function resetHistory(){appState.pickedStudentsHistory=[];addActivity('Đã đặt lại lịch sử gọi tên','🔄');persist();render()}
+function renderGroups(){
+ document.getElementById('content').innerHTML=`<div class="student-grid">${[1,2,3,4].map(i=>{let g='Tổ '+i,a=appState.students.filter(s=>s.group===g);return `<div class="card"><h3>🏆 ${g}</h3><div class="points">${groupTotal(g)} ⭐</div><div>${a.length?a.map(s=>`<div class="activity-item">${avatarHTML(s,'avatar')} ${esc(s.name)} <b style="float:right">${s.points} ⭐</b></div>`).join(''):'<div class="empty">Chưa có thành viên.</div>'}</div><div class="actions" style="margin-top:10px"><button class="btn mint" onclick="groupPoint('${g}',1)">+1 cho Tổ</button><button class="btn danger" onclick="groupPoint('${g}',-1)">-1 cho Tổ</button></div></div>`}).join('')}</div>`;
+}
+function groupPoint(g,n){let a=appState.students.filter(s=>s.group===g);a.forEach(s=>{s.points=Math.max(0,s.points+n);if(n>0)s.totalAccumulatedPoints+=n});appState.groupScores[g]=(appState.groupScores[g]||0)+n;addActivity(`${n>0?'+1':'-1'} cho ${g}`,'🏆');persist();render()}
+function renderRewards(){
+ document.getElementById('content').innerHTML=`<div class="toolbar"><button class="btn primary" onclick="editReward()">➕ Thêm phần thưởng</button></div><div class="rewards">${appState.rewards.map(r=>`<div class="reward">${r.image?`<img src="${r.image}" style="width:80px;height:80px;object-fit:cover;border-radius:15px">`:`<div class="emoji">${r.emoji}</div>`}<h3>${esc(r.name)}</h3><b>${r.cost} ⭐</b><div class="actions" style="margin-top:10px"><button class="mini" onclick="redeemReward('${r.id}')">🎁 Đổi quà</button><button class="mini" onclick="editReward('${r.id}')">✏️</button><button class="mini" onclick="removeReward('${r.id}')">🗑️</button></div></div>`).join('')}</div>`;
+}
+function editReward(id){let r=id?appState.rewards.find(x=>x.id===id):{emoji:'🎁',name:'',cost:10,image:''};document.getElementById('modalBox').innerHTML=`<h2>${id?'✏️ Sửa phần thưởng':'➕ Thêm phần thưởng'}</h2><div class="form-grid"><label>Emoji<input class="field" style="width:100%" id="rEmoji" value="${esc(r.emoji)}"></label><label>Số điểm<input class="field" style="width:100%" id="rCost" type="number" min="0" value="${r.cost}"></label><label class="full">Tên phần thưởng<input class="field" style="width:100%" id="rName" value="${esc(r.name)}"></label><label class="full">Ảnh<input type="file" id="rPhoto" accept="image/*"></label></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Hủy</button><button class="btn primary" id="saveReward">💾 Lưu</button></div>`;showModal();document.getElementById('saveReward').onclick=async()=>{let f=document.getElementById('rPhoto').files[0];let im=f?await readFile(f,500,.75):r.image;let x={id:r.id||uid('r'),emoji:document.getElementById('rEmoji').value||'🎁',name:document.getElementById('rName').value.trim(),cost:Math.max(0,Number(document.getElementById('rCost').value)||0),image:im};if(!x.name)return;if(id)Object.assign(r,x);else appState.rewards.push(x);persist();closeModal();render()}}
+function removeReward(id){if(confirm('Xóa phần thưởng này?')){appState.rewards=appState.rewards.filter(x=>x.id!==id);persist();render()}}
+function redeemReward(rid){let r=appState.rewards.find(x=>x.id===rid);let eligible=appState.students.filter(s=>s.points>=r.cost);if(!eligible.length){alert('Chưa có học sinh đủ điểm để đổi quà.');return}document.getElementById('modalBox').innerHTML=`<h2>🎁 Đổi ${esc(r.name)}</h2><p>Cần <b>${r.cost} ⭐</b>. Điểm dư được giữ lại.</p><div class="student-grid">${eligible.map(s=>`<button class="student" onclick="doRedeem('${s.id}','${r.id}')">${avatarHTML(s)}<h4>${esc(s.name)}</h4><b>${s.points} ⭐</b></button>`).join('')}</div>`;showModal()}
+function doRedeem(sid,rid){let s=appState.students.find(x=>x.id===sid),r=appState.rewards.find(x=>x.id===rid);s.points-=r.cost;addActivity(`${s.name} đổi quà ${r.name}, còn ${s.points} điểm`,'🎁');beep('win');persist();closeModal();render()}
+function renderRanking(){let a=[...appState.students].sort((x,y)=>y.totalAccumulatedPoints-x.totalAccumulatedPoints);document.getElementById('content').innerHTML=`<div class="card"><h3>🏆 TOP 3</h3><div class="leader-top">${[1,0,2].map(i=>a[i]?`<div class="podium ${i===0?'first':''}"><div class="rank">${i===0?'🥇':i===1?'🥈':'🥉'}</div>${avatarHTML(a[i])}<h3>${esc(a[i].name)}</h3><b>${a[i].totalAccumulatedPoints} ⭐</b><div>${esc(a[i].group)}</div></div>`:'').join('')}</div></div><div class="card" style="margin-top:16px"><h3>🥇 BẢNG XẾP HẠNG</h3><div class="table-wrap"><table class="table"><thead><tr><th>Hạng</th><th>Học sinh</th><th>Tổ</th><th>Tổng điểm tích lũy</th></tr></thead><tbody>${a.map((s,i)=>`<tr><td><b>${i+1}</b></td><td>${avatarHTML(s,'avatar')} ${esc(s.name)}</td><td>${esc(s.group)}</td><td><b>${s.totalAccumulatedPoints} ⭐</b></td></tr>`).join('')}</tbody></table></div></div>`}
+function renderNoise(){document.getElementById('content').innerHTML=`<div class="card noise"><h3>🔊 ĐO TIẾNG ỒN LỚP HỌC</h3><div class="noise-level" id="noiseNum">0%</div><div class="meter"><div class="meter-fill" id="noiseFill"></div></div><h2 id="noiseStatus">🤫 Rất tốt</h2><p id="noiseMsg">Tuyệt vời! Lớp mình đang rất tập trung!</p><label>⚙️ Độ nhạy Micro <input type="range" min="1" max="10" value="5" id="sensitivity"></label><div class="actions" style="margin-top:18px"><button class="btn primary" id="startMic">▶️ BẮT ĐẦU</button><button class="btn danger" id="stopMic">⏹️ DỪNG</button></div><p class="muted">Trình duyệt sẽ xin quyền sử dụng microphone.</p></div>`;document.getElementById('startMic').onclick=startMic;document.getElementById('stopMic').onclick=stopMic}
+async function startMic(){try{micStream=await navigator.mediaDevices.getUserMedia({audio:true});audioCtx ||= new (window.AudioContext||window.webkitAudioContext)();let src=audioCtx.createMediaStreamSource(micStream);analyser=audioCtx.createAnalyser();analyser.fftSize=512;src.connect(analyser);let data=new Uint8Array(analyser.fftSize);let loop=()=>{if(!analyser)return;analyser.getByteTimeDomainData(data);let sum=0;for(let x of data){let v=(x-128)/128;sum+=v*v}let rms=Math.sqrt(sum/data.length),sens=Number(document.getElementById('sensitivity').value),pct=Math.min(100,Math.round(rms*100*sens*2));document.getElementById('noiseNum').textContent=pct+'%';document.getElementById('noiseFill').style.width=pct+'%';let st=pct<25?['🤫 Rất tốt','Tuyệt vời! Lớp mình đang rất tập trung!']:pct<50?['🙂 Khá tốt','Âm thanh hơi tăng một chút.']:pct<75?['😮 Hơi ồn','Các con nói nhỏ lại nhé!']:['😵 Quá ồn','Lớp mình đang hơi ồn rồi!'];document.getElementById('noiseStatus').textContent=st[0];document.getElementById('noiseMsg').textContent=st[1];micRAF=requestAnimationFrame(loop)};loop()}catch(e){alert('Không thể truy cập microphone. Hãy cấp quyền cho trình duyệt.')}}
+function stopMic(){if(micRAF)cancelAnimationFrame(micRAF);micRAF=null;if(micStream)micStream.getTracks().forEach(t=>t.stop());micStream=null;analyser=null}
+function renderTimer(){document.getElementById('content').innerHTML=`<div class="card timer"><h3>⏱️ ĐỒNG HỒ ĐẾM NGƯỢC</h3><input class="field" id="timerName" value="Thảo luận nhóm" placeholder="Tên hoạt động"><div class="timer-display" id="timerDisplay">05:00</div><div class="toolbar" style="justify-content:center">${[[15,'15 giây'],[30,'30 giây'],[60,'1 phút'],[180,'3 phút'],[300,'5 phút'],[600,'10 phút'],[900,'15 phút']].map(x=>`<button class="btn" onclick="setTimer(${x[0]})">${x[1]}</button>`).join('')}<label class="btn">Sửa: <input id="customMin" type="number" min="0" max="180" style="width:70px;border:0" value="5"> phút</label></div><div class="progress"><div id="timerProgress"></div></div><div class="bird" id="bird">🐥</div><div class="actions" style="margin-top:15px"><button class="btn primary" onclick="startTimer()">▶️ BẮT ĐẦU</button><button class="btn" onclick="pauseTimer()">⏸️ TẠM DỪNG</button><button class="btn" onclick="resetTimer()">🔄 ĐẶT LẠI</button><button class="btn mint" onclick="timerFullscreen()">⛶ TRÌNH CHIẾU TOÀN MÀN HÌNH</button></div></div>`;setTimer(300)}
+let timerTotal=300,timerRemain=300;
+function setTimer(sec){clearInterval(timer);timerTotal=timerRemain=sec;updateTimer()}
+function updateTimer(){let m=Math.floor(timerRemain/60),s=timerRemain%60;document.getElementById('timerDisplay').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');document.getElementById('timerProgress').style.width=(timerTotal?((timerTotal-timerRemain)/timerTotal*100):0)+'%';document.getElementById('bird').style.transform=`translateX(${Math.min(45,((timerTotal-timerRemain)/timerTotal)*45)}vw)`}
+function startTimer(){if(timer)clearInterval(timer);if(document.getElementById('customMin')){let m=Number(document.getElementById('customMin').value);if(m>0&&timerRemain===timerTotal){timerTotal=timerRemain=m*60}}timer=setInterval(()=>{timerRemain--;updateTimer();if(timerRemain<=0){clearInterval(timer);timer=null;beep('win');alert('⏰ Hết giờ!')}},1000)}
+function pauseTimer(){clearInterval(timer);timer=null}
+function resetTimer(){let m=Number(document.getElementById('customMin')?.value||5);timerTotal=timerRemain=m*60;clearInterval(timer);timer=null;updateTimer()}
+function timerFullscreen(){let el=document.querySelector('.timer');el.classList.toggle('fullscreen')}
+function renderSettings(){
+ document.getElementById('content').innerHTML=`<div class="grid2"><div class="card"><h3>⚙️ Thông tin lớp</h3><div class="form-grid">
+ <label class="full">Tên ứng dụng<input class="field" style="width:100%" id="setTitle" value="${esc(appState.settings.appTitle)}"></label>
+ <label>Tên giáo viên<input class="field" style="width:100%" id="setTeacher" value="${esc(appState.settings.teacherName)}"></label>
+ <label>Tên lớp<input class="field" style="width:100%" id="setClass" value="${esc(appState.settings.className)}"></label>
+ <label>Năm học<input class="field" style="width:100%" id="setYear" value="${esc(appState.settings.schoolYear)}"></label>
+ <label class="full">Avatar giáo viên<input type="file" id="setAvatar" accept="image/*"></label>
+ <label class="full">Ảnh bìa lớp học<input type="file" id="setCover" accept="image/*"></label>
+ </div><div class="modal-actions"><button class="btn primary" id="saveSettings">💾 Lưu cài đặt</button></div></div>
+ <div class="card"><h3>💾 SAO LƯU & KHÔI PHỤC</h3><p class="muted">Nên xuất file JSON định kỳ để có bản sao an toàn.</p><div class="actions"><button class="btn mint" onclick="exportJSON()">📥 Xuất File Sao Lưu (.JSON)</button><label class="btn">📤 NẠP FILE SAO LƯU (.JSON)<input type="file" id="jsonIn" accept=".json" style="display:none" onchange="importJSON(this.files[0])"></label><button class="btn" onclick="exportExcel()">📊 XUẤT EXCEL</button></div><hr><h3>⚠️ VÙNG NGUY HIỂM</h3><button class="btn danger" onclick="wipeAll()">🗑️ XÓA TOÀN BỘ DỮ LIỆU</button></div></div>`;
+ document.getElementById('saveSettings').onclick=async()=>{appState.settings.appTitle=document.getElementById('setTitle').value||'🌸 NGÔI NHÀ HẠNH PHÚC';appState.settings.teacherName=document.getElementById('setTeacher').value||'Phạm Thị Hoa';appState.settings.className=document.getElementById('setClass').value||'Lớp của tôi';appState.settings.schoolYear=document.getElementById('setYear').value||'2026-2027';let a=document.getElementById('setAvatar').files[0],c=document.getElementById('setCover').files[0];if(a)appState.settings.teacherAvatar=await readFile(a,500,.75);if(c)appState.settings.coverPhoto=await readFile(c,1200,.78);await persist(false);toast('🌸 Đã cập nhật cài đặt');render()};
+}
+function exportJSON(){let blob=new Blob([JSON.stringify(appState,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`SaoLuu_NgoiNhaHanhPhuc_${today()}.json`;a.click();URL.revokeObjectURL(a.href);toast('📥 Đã xuất file sao lưu')}
+async function importJSON(file){if(!file)return;try{let data=JSON.parse(await file.text());if(!data||!Array.isArray(data.students)||!data.settings)throw Error();appState=normalize(data);await persist(false);render();toast('📤 Đã khôi phục dữ liệu')}catch{alert('⚠️ File sao lưu không hợp lệ!')}}
+function exportExcel(){let rows=[['STT','Họ và tên','Giới tính','Tổ','Điểm hiện tại','Tổng điểm tích lũy','Điểm danh hôm nay'],...appState.students.map((s,i)=>[i+1,s.name,s.gender,s.group,s.points,s.totalAccumulatedPoints,(appState.attendance[today()]||{})[s.id]||'Có mặt'])];let csv='\ufeff'+rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=`BaoCao_${appState.settings.className}_${today()}.csv`;a.click();toast('📊 Đã xuất bảng báo cáo Excel-compatible (.csv)')}
+async function wipeAll(){if(!confirm('Bạn có chắc muốn xóa toàn bộ dữ liệu lớp học không? Thao tác này không thể hoàn tác.'))return;localStorage.removeItem(KEY);if(db)await new Promise(res=>{let r=indexedDB.deleteDatabase(DB);r.onsuccess=r.onerror=()=>res()});appState=clone(defaultState);addActivity('Đã khởi tạo trạng thái mới','🔄');await initDB();await persist(false);render();toast('🗑️ Đã xóa toàn bộ dữ liệu')}
+function showModal(){document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+window.addEventListener('beforeunload',()=>{try{localStorage.setItem(KEY,JSON.stringify(appState))}catch{}});
+
+(async()=>{await initDB();await loadData()})();
+</script>
+</body>
+</html>
